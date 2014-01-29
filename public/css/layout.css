@@ -10,11 +10,11 @@ html, body {
   top:0;
   z-index:1;
   height:41px;
-  border-top: 3px solid #0af93c;
+  border-top: 3px solid #E51512;
 }
 #header a.brand {
   font-family: monospace
 }
 #header a.brand span {
-  color: #0af93c;
+  color: #E51512;
 }
