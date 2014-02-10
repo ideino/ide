@@ -33,6 +33,7 @@ var sessionStore = new express.session.MemoryStore({
   reapInterval: 60000 * 10
 });
 app.configure(function() {
+  app.use(express.favicon( path.join(__dirname,'/public/favicon.ico'))); 
   app.set('port', port);
   app.set('views', path.join(__dirname, 'views'));
   app.set('view engine', 'html');
