@@ -18,3 +18,11 @@ html, body {
 #header a.brand span {
   color: #E51512;
 }
+#header p.brand-mini {
+  font-family: monospace;
+  font-size: 11px;
+  top: 22px;
+  left:100px;
+  position:absolute;
+  color: #DE1411;
+}
