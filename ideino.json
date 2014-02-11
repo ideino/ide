@@ -1,6 +1,4 @@
 {
-  "framesUrl1": "http://localhost:3000",
-  "framesUrl2": "http://localhost:8080/debug?port=5858",
   "editor": {
     "tabSize": 2,
     "useSoftTabs": true,
@@ -42,15 +40,6 @@
     }
   },
   "links": {
-    "node": "http://nodejs.org",
-    "mongodb": "http://www.mongodb.org",
-    "mongoose": "http://mongoosejs.com",
-    "-w3": "http://www.w3.org/",
-    "mozilla js": "https://developer.mozilla.org/en-US/docs/JavaScript",
-    "expressjs": "http://expressjs.com",
-    "bootstrap": "http://twitter.github.com/bootstrap/",
-    "-jquery": "http://jquery.com/",
-    "jqueryui": "http://jqueryui.com/",
-    "jquerymobile": "http://jquerymobile.com/"
+    "Ideino": "http://www.ideino.org"
   }
 }

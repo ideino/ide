@@ -7,8 +7,26 @@ var server = require('http').createServer(app),
   fs = require('fs'),
   path = require('path'),
   ejs = require('ejs-locals'),
-  childprocs = require('./lib/childprocs');
+  childprocs = require('./lib/childprocs'),
+  os = require('os');
 // ideino config
+//ST find ip addresses
+var interfaces = os.networkInterfaces();
+var addresses = [];
+for (k in interfaces) {
+    for (k2 in interfaces[k]) {
+        var address = interfaces[k][k2];
+        if (address.family == 'IPv4' && !address.internal) {
+            addresses.push(address.address)
+        }
+    }
+}
+if(addresses.length == 0){
+	addresses.push("localhost");
+}
+//ST find ip addresses
+
+
 var ideinoConfig = {};
 if (fs.existsSync('./ideino.json')) {
   ideinoConfig = require('./ideino.json');
@@ -16,8 +34,10 @@ if (fs.existsSync('./ideino.json')) {
 // set up default prj dir - used in the absence of a 'path' query string
 if (!ideinoConfig.projectsDir) ideinoConfig.projectsDir = path.join(__dirname, 'ideino/projects/user');
 if (!ideinoConfig.templatesDir) ideinoConfig.templatesDir = path.join(__dirname, 'ideino/templates')
-if (!ideinoConfig.framesUrl1) ideinoConfig.framesUrl1 = "http://localhost:3000";
-if (!ideinoConfig.framesUrl2) ideinoConfig.framesUrl2 = "http://localhost:8080/debug?port=5858";
+//ST: changing loopback or localhost to real ip address
+if (!ideinoConfig.framesUrl1) ideinoConfig.framesUrl1 = "http://"+addresses[0]+":3000";
+if (!ideinoConfig.framesUrl2) ideinoConfig.framesUrl2 = "http://"+addresses[0]+":8080/debug?port=5858";
+//ST: changing loopback or localhost to real ip address
 
 app.set('ideinoConfig', ideinoConfig);
 // initialize locals
