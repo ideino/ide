@@ -43,7 +43,7 @@ app.set('ideinoConfig', ideinoConfig);
 // initialize locals
 app.locals({
   metaTitle: 'Ideino',
-  templates: fs.readFileSync('./public/html/templates.html')
+  templates: fs.readFileSync(path.join(__dirname,'./public/html/templates.html'))
 });
 // register .html extension
 app.engine('html', ejs);
