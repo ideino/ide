@@ -3,12 +3,14 @@ var express = require('express');
 app = express();
 var server = require('http').createServer(app),
   io = require('socket.io').listen(server),
-  path = require('path'),
   fs = require('fs'),
   path = require('path'),
   ejs = require('ejs-locals'),
   childprocs = require('./lib/childprocs'),
   os = require('os');
+  
+io.set('log level',3);
+
 // ideino config
 //ST find ip addresses
 var interfaces = os.networkInterfaces();
