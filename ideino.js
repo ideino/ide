@@ -2,7 +2,7 @@
 var express = require('express');
 app = express();
 var server = require('http').createServer(app),
-  io = require('socket.io').listen(server),
+  io = require('socket.io').listen(server,{log:false}),
   fs = require('fs'),
   path = require('path'),
   ejs = require('ejs-locals'),
